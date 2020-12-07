@@ -21,7 +21,7 @@ class CreateFormsTable extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->Integer(config('formbuilder.entity_id'))->nullable();
 
             $table->string('name');
             $table->string('visibility');
@@ -33,7 +33,7 @@ class CreateFormsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign(config('formbuilder.entity_id'))->references('id')->on(config('formbuilder.users_table_name'))->onDelete('CASCADE');
         });
     }
 

@@ -53,7 +53,7 @@ class MySubmissionController extends Controller
     public function show($id)
     {
         $user = auth()->user();
-        $submission = Submission::where(['user_id' => $user->id, 'id' => $id])
+        $submission = Submission::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])
                             ->with('form')
                             ->firstOrFail();
 
@@ -73,7 +73,7 @@ class MySubmissionController extends Controller
     public function edit($id)
     {
         $user = auth()->user();
-        $submission = Submission::where(['user_id' => $user->id, 'id' => $id])
+        $submission = Submission::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])
                             ->with('form')
                             ->firstOrFail();
 
@@ -96,7 +96,7 @@ class MySubmissionController extends Controller
     public function update(Request $request, $id)
     {
         $user = auth()->user();
-        $submission = Submission::where(['user_id' => $user->id, 'id' => $id])->firstOrFail();
+        $submission = Submission::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])->firstOrFail();
 
         DB::beginTransaction();
 
@@ -137,7 +137,7 @@ class MySubmissionController extends Controller
     public function destroy($id)
     {
         $user = auth()->user();
-        $submission = Submission::where(['user_id' => $user->id, 'id' => $id])->firstOrFail();
+        $submission = Submission::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])->firstOrFail();
         $submission->delete();
 
         return redirect()

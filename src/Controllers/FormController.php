@@ -71,7 +71,7 @@ class FormController extends Controller
     {
         $user = $request->user();
 
-        $input = $request->merge(['user_id' => $user->id])->except('_token');
+        $input = $request->merge([config('formbuilder.entity_id') => $user->id])->except('_token');
 
         DB::beginTransaction();
 
@@ -109,7 +109,7 @@ class FormController extends Controller
     public function show($id)
     {
         $user = auth()->user();
-        $form = Form::where(['user_id' => $user->id, 'id' => $id])
+        $form = Form::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])
                     ->with('user')
                     ->withCount('submissions')
                     ->firstOrFail();
@@ -129,7 +129,7 @@ class FormController extends Controller
     {
         $user = auth()->user();
 
-        $form = Form::where(['user_id' => $user->id, 'id' => $id])->firstOrFail();
+        $form = Form::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])->firstOrFail();
 
         $pageTitle = 'Edit Form';
 
@@ -151,7 +151,7 @@ class FormController extends Controller
     public function update(SaveFormRequest $request, $id)
     {
         $user = auth()->user();
-        $form = Form::where(['user_id' => $user->id, 'id' => $id])->firstOrFail();
+        $form = Form::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])->firstOrFail();
 
         $input = $request->except('_token');
 
@@ -179,7 +179,7 @@ class FormController extends Controller
     public function destroy($id)
     {
         $user = auth()->user();
-        $form = Form::where(['user_id' => $user->id, 'id' => $id])->firstOrFail();
+        $form = Form::where([config('formbuilder.entity_id') => $user->id, 'id' => $id])->firstOrFail();
         $form->delete();
 
         // dispatch the event

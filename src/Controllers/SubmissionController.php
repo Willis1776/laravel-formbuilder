@@ -35,7 +35,7 @@ class SubmissionController extends Controller
     {
         $user = auth()->user();
 
-        $form = Form::where(['user_id' => $user->id, 'id' => $form_id])
+        $form = Form::where([config('formbuilder.entity_id') => $user->id, 'id' => $form_id])
                     ->with(['user'])
                     ->firstOrFail();
 

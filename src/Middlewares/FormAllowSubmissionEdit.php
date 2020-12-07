@@ -24,7 +24,7 @@ class FormAllowSubmissionEdit
         $submission_id = $request->route('my_submission');
 
         $user = $request->user();
-        $submission = Submission::where(['user_id' => $user->id, 'id' => $submission_id])->firstOrFail();
+        $submission = Submission::where([config('formbuilder.entity_id') => $user->id, 'id' => $submission_id])->firstOrFail();
 
         if (! $submission->form->allowsEdit()) {
             // this form does not allow edit

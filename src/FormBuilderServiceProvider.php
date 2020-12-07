@@ -15,23 +15,13 @@ use Illuminate\Support\ServiceProvider;
 
 class FormBuilderServiceProvider extends ServiceProvider
 {
-	/**
-	 * Register bindings in the container.
-	 *
-	 * @return void
-	 */
 	public function register()
 	{
 	    $this->mergeConfigFrom(
-	        __DIR__.'/../config/config.php', 'formbuilder'
-	    );
-	}
-
-	/**
-	 * Perform post-registration booting of services.
-	 *
-	 * @return void
-	 */
+	      __DIR__.'/../config/config.php', 'formbuilder'
+	      );
+  }
+  
 	public function boot()
 	{
 	    // load custom route overrides
@@ -49,17 +39,17 @@ class FormBuilderServiceProvider extends ServiceProvider
 
 	    // publish config files
 	    $this->publishes([
-	        __DIR__.'/../config/config.php' => config_path('formbuilder.php', 'formbuilder'),
-	    ], 'formbuilder-config');
+	      __DIR__.'/../config/config.php' => config_path('formbuilder.php', 'formbuilder'),
+	      ], 'formbuilder-config');
 
 	    // publish view files
 	    $this->publishes([
-	    	__DIR__.'/../views' => resource_path('views/vendor/formbuilder', 'formbuilder::'),
-	    ], 'formbuilder-views');
+        __DIR__.'/../views' => resource_path('views/vendor/formbuilder', 'formbuilder::'),
+        ], 'formbuilder-views');
 
 	    // publish public assets
 	    $this->publishes([
-	        __DIR__.'/../public' => public_path('vendor/formbuilder'),
+        __DIR__.'/../public' => public_path('vendor/formbuilder'),
         ], 'formbuilder-public');
-	}
+  }
 }

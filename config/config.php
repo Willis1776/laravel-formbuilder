@@ -38,4 +38,7 @@ return [
     'models' => [
         'user' => \App\User::class,
     ],
+
+    'users_table_name' => 'users',
+    'entity_id' => 'user_id'
 ];

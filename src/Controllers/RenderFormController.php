@@ -69,7 +69,7 @@ class RenderFormController extends Controller
             $user_id = auth()->user()->id ?? null;
 
             $form->submissions()->create([
-                'user_id' => $user_id,
+              config('formbuilder.entity_id') => $user_id,
                 'content' => $input,
             ]);
 
