@@ -172,10 +172,6 @@ class Submission extends Model
             $str = $this->content[$key] ?? '';
         }
 
-        if ($limit_string) {
-            $str = Str::limit($str, 20, '');
-        }
-
         // if the type is 'file' then we have to render this as a link
         if ($type == 'file') {
 		if(isset($this->content[$key])){
