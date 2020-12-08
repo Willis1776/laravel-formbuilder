@@ -4040,7 +4040,7 @@
 
 			self.$button = $('<button/>', {type: 'button', 'class': 'btn btn-primary'})
 				.on('click', { self: self }, self._onSearchButtonClicked)
-				.append($('<span/>', {'class': 'fooicon fooicon-search'}));
+				.append($('<span/>', {'class': 'fas fa-search'}));
 
 			self.$dropdown = $('<ul/>', {'class': 'dropdown-menu dropdown-menu-right'});
 			if (!F.is.emptyString(self.dropdownTitle)){
@@ -4190,9 +4190,9 @@
 		 */
 		setButton: function(search){
 			if (!search){
-				this.$button.children('.fooicon').removeClass('fooicon-search').addClass('fooicon-remove');
+				this.$button.children('.fooicon').removeClass('fa-search').addClass('fooicon-remove');
 			} else {
-				this.$button.children('.fooicon').removeClass('fooicon-remove').addClass('fooicon-search');
+				this.$button.children('.fooicon').removeClass('fooicon-remove').addClass('fa-search');
 			}
 		},
 		/**
@@ -4339,7 +4339,7 @@
 				self._filterTimeout = null;
 				var $icon = self.$button.children('.fooicon');
 				if ($icon.hasClass('fooicon-remove')){
-					$icon.removeClass('fooicon-remove').addClass('fooicon-search');
+					$icon.removeClass('fooicon-remove').addClass('fa-search');
 					self.addFilter('search', self.$input.val());
 					self.filter();
 				}
