@@ -4040,7 +4040,7 @@
 
 			self.$button = $('<button/>', {type: 'button', 'class': 'btn btn-primary'})
 				.on('click', { self: self }, self._onSearchButtonClicked)
-				.append($('<span/>', {'class': 'fas fa-search'}));
+				.append($('<span/>', {'class': 'fa fa-search'}));
 
 			self.$dropdown = $('<ul/>', {'class': 'dropdown-menu dropdown-menu-right'});
 			if (!F.is.emptyString(self.dropdownTitle)){
@@ -4859,7 +4859,7 @@
 				}
 				F.arr.each(self.ft.columns.array, function(col){
 					if (col.sortable){
-						col.$el.addClass('footable-sortable').append($('<span/>', {'class': 'fooicon fooicon-sort'}));
+						col.$el.addClass('footable-sortable').append($('<span/>', {'class': 'fa fa-sort'}));
 					}
 				});
 				self.ft.$el.on('click.footable', '.footable-sortable', { self: self }, self._onSortClicked);
@@ -4914,10 +4914,10 @@
 				$sortable = self.ft.$el.find('thead > tr > .footable-sortable'),
 				$active = self.column.$el;
 
-			$sortable.removeClass('footable-asc footable-desc').children('.fooicon').removeClass('fooicon-sort fooicon-sort-asc fooicon-sort-desc');
-			$sortable.not($active).children('.fooicon').addClass('fooicon-sort');
+			$sortable.removeClass('footable-asc footable-desc').children('.fooicon').removeClass('fa-sort  fa-sort-up  fa-sort-down');
+			$sortable.not($active).children('.fooicon').addClass(' fa-sort');
 			$active.addClass(self.column.direction == 'DESC' ? 'footable-desc' : 'footable-asc')
-				.children('.fooicon').addClass(self.column.direction == 'DESC' ? 'fooicon-sort-desc' : 'fooicon-sort-asc');
+				.children('.fooicon').addClass(self.column.direction == 'DESC' ? ' fa-sort-down' : ' fa-sort-up');
 		},
 
 		/* PUBLIC */
