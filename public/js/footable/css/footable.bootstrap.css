@@ -140,7 +140,7 @@ table.footable > tbody > tr.footable-detail-row > th {
 .fooicon-minus:before {
 	content: "\2212";
 }
-.fooicon-search:before {
+.fa-search:before {
 	content: "\e003";
 }
 .fooicon-remove:before {
