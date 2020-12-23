@@ -33,7 +33,6 @@ class CreateFormsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign(config('formbuilder.entity_id'))->references('id')->on(config('formbuilder.users_table_name'))->onDelete('CASCADE');
         });
     }
 
