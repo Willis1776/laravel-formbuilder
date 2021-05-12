@@ -32,7 +32,7 @@ class FormBuilderServiceProvider extends ServiceProvider
 	    Route::aliasMiddleware('submisson-editable', FormAllowSubmissionEdit::class);
 
 	    // load migrations
-	    $this->loadMigrationsFrom( __DIR__.'/../migrations' );
+	    $this->loadMigrationsFrom( __DIR__.'/../migrations/tenant' );
 
 	    // load the views
 	    $this->loadViewsFrom( __DIR__.'/../views', 'formbuilder' );
