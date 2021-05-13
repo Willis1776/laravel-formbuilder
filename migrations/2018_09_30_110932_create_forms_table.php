@@ -30,7 +30,7 @@ class CreateFormsTable extends Migration
 
       $table->string('identifier')->unique();
       $table->text('form_builder_json')->nullable();
-      $table->string('custom_submit_url')->nullable()->after('form_builder_json');
+      $table->string('custom_submit_url')->nullable();
 
       $table->softDeletes();
       $table->timestamps();
