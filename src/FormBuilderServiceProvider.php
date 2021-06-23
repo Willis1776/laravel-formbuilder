@@ -27,7 +27,8 @@ class FormBuilderServiceProvider extends ServiceProvider
   public function boot()
   {
     // load custom route overrides
-    $this->loadRoutesFrom(__DIR__ . '/../routes.php');
+    if (env('LOAD_FORM_ROUTES', true))
+      $this->loadRoutesFrom(__DIR__ . '/../routes.php');
 
     // register the middleware
     Route::aliasMiddleware('public-form-access', PublicFormAccess::class);
